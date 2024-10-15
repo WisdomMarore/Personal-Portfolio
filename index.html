@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom -Fullstack Web Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Wisdom Marore</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Wisdom Marore</h1>
+            <h2>Computer Science Student and Aspiring Fullstack Web Developer</h2>
+            <a href="projects.html" class="cta-button">View My Work</a>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">React</div>
+                <div class="skill">Django</div>
+                <div class="skill">Python</div>
+                <div class="skill">Git</div>
+                <div class="skill">Responsive Design</div>
+                <div class="skill">Tailwind CSS and Sass</div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <p>Phone Number: +263719518113 Email: marorew@gmail.com</p>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Wisdom Marore. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/WisdomMarore" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/wisdom-marore-6b2b01284/" target="_blank">LinkedIn</a>
+            <a href="https://x.com/WisdomMaro27865" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // EmailJS initialization
+            emailjs.init("ME1ZKtP2ym5YAnKnT"); // Replace with your EmailJS user ID
+        
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+        
+                const name = this.querySelector('input[type="text"]').value;
+                const email = this.querySelector('input[type="email"]').value;
+                const message = this.querySelector('textarea').value;
+        
+                // Prepare the email parameters
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    to_email: 'marorew@gmail.com',
+                    message: message
+                };
+        
+                // Send the email using EmailJS
+                emailjs.send('service_rvswtag', 'template_umxb5gq', templateParams)
+    .then(function(response) {
+        console.log('Email sent successfully:', response);
+        alert('Your message has been sent successfully!');
+        form.reset();
+    }, function(error) {
+        console.error('Error sending email:', error);
+        alert('Error details: ' + JSON.stringify(error));
+    });
+            });
+        })();
+        </script>
+</body>
+</html>
